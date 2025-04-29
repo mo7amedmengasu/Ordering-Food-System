@@ -62,6 +62,24 @@ namespace Db_Project.Repositories
             return MapDataTableToUserPhones(dataTable);
         }
 
+        public void UpdatePhone(UserPhone phone)
+        {
+            // Basic validation
+            if (phone == null)
+                throw new ArgumentNullException(nameof(phone));
+            if (string.IsNullOrEmpty(phone.Phone)) 
+                throw new ArgumentException("Phone number cannot be null or empty for update. Use DeleteUserPhone instead.", nameof(phone));
+
+            string query = $"UPDATE Users SET Phone = @NewPhone WHERE UserID = @UserID";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@NewPhone", phone.Phone),
+                new SqlParameter("@UserID", phone.UserID)  
+            };
+
+            _dbHelper.ExecuteNonQuery(query, parameters);
+        }
+
         // DELETE - Remove a user phone number
         public void DeleteUserPhone(int userId, string phone)
         {
@@ -99,3 +117,9 @@ namespace Db_Project.Repositories
         }
     }
 }
+
+
+
+
+
+
