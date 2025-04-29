@@ -1,0 +1,10 @@
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Properties.Resources.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.GenerateResource.cache
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\Db Project\bin\Debug\Db Project.exe.config
+C:\Users\DELL\source\repos\Db Project\bin\Debug\Db Project.exe
+C:\Users\DELL\source\repos\Db Project\bin\Debug\Db Project.pdb
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Form1.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.exe
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.pdb
