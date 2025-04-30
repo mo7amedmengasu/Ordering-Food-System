@@ -89,8 +89,32 @@ public class UserRepository
         return users;
     }
 
+    public void UpdateUserProfile(Users user) 
+    {
+        if (user == null)
+            throw new ArgumentNullException(nameof(user));
 
-    public void UpdateUser(Users user)
+        //don't update the hashed password
+        string query = @"UPDATE Users
+                     SET FirstName = @FirstName,
+                         LastName = @LastName,
+                         UserAddress = @UserAddress
+                     WHERE UserID = @UserID";
+
+        SqlParameter[] parameters =
+        {
+        new SqlParameter("@FirstName", user.FirstName ?? (object)DBNull.Value),
+        new SqlParameter("@LastName", user.LastName ?? (object)DBNull.Value),
+        new SqlParameter("@UserAddress", user.UserAddress ?? (object)DBNull.Value),
+        new SqlParameter("@UserID", user.UserID)
+    };
+
+        _dbHelper.ExecuteNonQuery(query, parameters);
+    }
+
+   
+
+    /*public void UpdateUser(Users user)
     {
         string query = "UPDATE Users SET FirstName = @FirstName, LastName = @LastName, Email = @Email, " +
                        "UserAddress = @UserAddress, UserRole = @UserRole, UserPassword = @UserPassword " +
@@ -106,7 +130,7 @@ public class UserRepository
             new SqlParameter("@UserPassword", user.UserPassword) // Requires logic to check if it's a new plain password to hash
         };
         _dbHelper.ExecuteNonQuery(query, parameters);
-    }
+    }*/
 
 
     public void DeleteUser(int userId)

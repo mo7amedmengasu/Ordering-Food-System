@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic; // Needed for List
+using System.Collections.Generic; 
 using System.Configuration;
 using System.Linq; // Needed for .FirstOrDefault()
 using System.Windows.Forms;
@@ -11,11 +11,10 @@ namespace Db_Project.Forms
     public partial class UserProfileForm : Form
     {
         private readonly UserRepository _userRepository;
-        private readonly UserPhoneRepository _userPhoneRepository; // Using your void/List methods
+        private readonly UserPhoneRepository _userPhoneRepository;
 
         private Users _currentUserData;
-        // We still need to track the specific phone being displayed/edited
-        private UserPhone _currentDisplayPhone; // Renamed for clarity
+        private UserPhone _currentDisplayPhone;
 
         string ConnectionString = "Server=ESRAA\\SQLEXPRESS;Database=FoodOrdering;Integrated Security=True;";
 
@@ -48,18 +47,12 @@ namespace Db_Project.Forms
             }
 
             int currentUserId = CurrentUser.LoggedInUser.UserID;
-           // lblUserIDValue?.SetText(currentUserId.ToString());
 
             try
             {
                 _currentUserData = _userRepository.GetUserById(currentUserId);
-
-                // --- Get phone list and find the one to display ---
-                // Your repo returns a List<UserPhone>
                 List<UserPhone> userPhones = _userPhoneRepository.GetPhonesByUser(currentUserId);
-                // We need to decide which phone to show if there are multiple.
-                // Let's take the first one found, or null if the list is empty.
-                _currentDisplayPhone = userPhones.FirstOrDefault(); // Get first or null
+                _currentDisplayPhone = userPhones.FirstOrDefault();
 
                 if (_currentUserData != null)
                 {
@@ -69,14 +62,13 @@ namespace Db_Project.Forms
                     txtAddress?.SetText(_currentUserData.UserAddress ?? "");
                     if (txtEmail != null) txtEmail.ReadOnly = true;
 
-                    // Set phone text based on the first phone found (or empty)
                     if (_currentDisplayPhone != null)
                     {
                         txtPhone?.SetText(_currentDisplayPhone.Phone ?? "");
                     }
                     else
                     {
-                        txtPhone?.SetText(""); // No phone on record
+                        txtPhone?.SetText("");
                     }
                 }
                 else
@@ -93,105 +85,124 @@ namespace Db_Project.Forms
             }
         }
 
-
-    private void btnSaveChanges_Click(object sender, EventArgs e)
-    {
-        if (_currentUserData == null)
+        private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cannot save changes, user data not loaded correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        if (string.IsNullOrWhiteSpace(txtFirstName?.Text) ||
-            string.IsNullOrWhiteSpace(txtLastName?.Text) ||
-            string.IsNullOrWhiteSpace(txtAddress?.Text)) // Phone validation handled separately
-        {
-            MessageBox.Show("Please ensure First Name, Last Name, and Address are filled.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
-        // --- Prepare User Update ---
-        _currentUserData.FirstName = txtFirstName.Text.Trim();
-        _currentUserData.LastName = txtLastName.Text.Trim();
-        _currentUserData.UserAddress = txtAddress.Text.Trim();
-
-        // --- Prepare Phone Update/Add/Delete ---
-        string enteredPhone = txtPhone.Text.Trim();
-        bool phoneCurrentlyExists = _currentDisplayPhone != null;
-        bool enteredPhoneIsEmpty = string.IsNullOrWhiteSpace(enteredPhone);
-
-        try // Wrap entire save operation
-        {
-            // --- Update User Details First ---
-            // Assuming UpdateUser returns void and throws on critical DB error
-            _userRepository.UpdateUser(_currentUserData);
-            // If we reach here, assume user update was sent to DB ok
-
-            // --- Handle Phone Changes ---
-            if (phoneCurrentlyExists)
+            if (_currentUserData == null)
             {
-                // A phone number was loaded initially
-                if (enteredPhoneIsEmpty)
-                {
-                    // User deleted the phone number -> Delete from DB
-                    _userPhoneRepository.DeleteUserPhone(_currentUserData.UserID, _currentDisplayPhone.Phone);
-                    _currentDisplayPhone = null; // Update local state
-                    Console.WriteLine($"Phone deleted for UserID {_currentUserData.UserID}");
-                }
-                else if (_currentDisplayPhone.Phone != enteredPhone)
-                {
-                    // User changed the phone number -> Update in DB
-                    // Note: Your current repo doesn't have an Update method.
-                    // We have to Delete the old and Add the new (less ideal)
-                    // OR **add an UpdatePhone method to your repository**.
-
-                    // --- OPTION 1: Delete then Add (if no UpdatePhone method exists) ---
-                    // _userPhoneRepository.DeleteUserPhone(_currentUserData.UserID, _currentDisplayPhone.Phone);
-                    // UserPhone newPhoneToAdd = new UserPhone { UserID = _currentUserData.UserID, Phone = enteredPhone };
-                    // _userPhoneRepository.AddUserPhone(newPhoneToAdd);
-                    // _currentDisplayPhone = newPhoneToAdd; // Update local state
-                    // Console.WriteLine($"Phone updated (via Delete/Add) for UserID {_currentUserData.UserID}");
-
-                    // --- OPTION 2: Assume UpdatePhone method IS added to Repo (Preferred) ---
-                    UserPhone phoneToUpdate = new UserPhone { UserID = _currentUserData.UserID, Phone = enteredPhone };
-                    _userPhoneRepository.UpdatePhone(phoneToUpdate); // Call the Update method
-                    _currentDisplayPhone = phoneToUpdate; // Update local state
-                    Console.WriteLine($"Phone update attempted for UserID {_currentUserData.UserID}");
-
-                }
-                // else: Phone exists and hasn't changed - do nothing
-
-            }
-            else // No phone was loaded initially (_currentDisplayPhone was null)
-            {
-                if (!enteredPhoneIsEmpty)
-                {
-                    // User entered a phone number where there was none -> Add to DB
-                    UserPhone phoneToAdd = new UserPhone { UserID = _currentUserData.UserID, Phone = enteredPhone };
-                    _userPhoneRepository.AddUserPhone(phoneToAdd);
-                    _currentDisplayPhone = phoneToAdd; // Update local state
-                    Console.WriteLine($"Phone added for UserID {_currentUserData.UserID}");
-                }
-                // else: No phone existed and user entered nothing - do nothing
+                MessageBox.Show("Cannot save changes, user data not loaded correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            // If we reach here without exceptions, report general success
-            MessageBox.Show("Profile changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Note: We don't have bool confirmation from repo methods here.
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string address = txtAddress.Text.Trim();
+            string enteredPhone = txtPhone.Text.Trim(); 
 
+
+            if (string.IsNullOrWhiteSpace(firstName))
+            {
+                MessageBox.Show("First Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFirstName.Focus();
+                return;
+            }
+            if (!firstName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("First Name must contain only letters and spaces.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFirstName.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(lastName))
+            {
+                MessageBox.Show("Last Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLastName.Focus();
+                return;
+            }
+            if (!lastName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Last Name must contain only letters and spaces.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLastName.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                MessageBox.Show("Address cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAddress.Focus();
+                return;
+            }
+
+            bool enteredPhoneIsEmpty = string.IsNullOrWhiteSpace(enteredPhone);
+            if (!enteredPhoneIsEmpty) 
+            {
+                if (!enteredPhone.All(char.IsDigit))
+                {
+                    MessageBox.Show("Phone number must contain only digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPhone.Focus();
+                    txtPhone.SelectAll();
+                    return;
+                }
+                if (enteredPhone.Length < 11) 
+                {
+                    MessageBox.Show("Phone number must be at least 11 digits long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPhone.Focus();
+                    return;
+                }
+            }
+
+
+            _currentUserData.FirstName = firstName;
+            _currentUserData.LastName = lastName;
+            _currentUserData.UserAddress = address;
+
+            bool phoneCurrentlyExists = _currentDisplayPhone != null;
+
+            try 
+            {
+                _userRepository.UpdateUserProfile(_currentUserData);
+                Console.WriteLine($"User profile update attempted for UserID {_currentUserData.UserID}");
+
+                if (phoneCurrentlyExists)
+                {
+                    if (enteredPhoneIsEmpty)
+                    {
+                        _userPhoneRepository.DeleteUserPhone(_currentUserData.UserID, _currentDisplayPhone.Phone);
+                        _currentDisplayPhone = null;
+                        Console.WriteLine($"Phone delete attempted for UserID {_currentUserData.UserID}");
+                    }
+                    else if (_currentDisplayPhone.Phone != enteredPhone)
+                    {
+                        UserPhone phoneToUpdate = new UserPhone { UserID = _currentUserData.UserID, Phone = enteredPhone };
+                        _userPhoneRepository.UpdatePhone(phoneToUpdate); 
+                        _currentDisplayPhone = phoneToUpdate; 
+                        Console.WriteLine($"Phone update attempted for UserID {_currentUserData.UserID}");
+                    }
+                }
+                else 
+                {
+                    if (!enteredPhoneIsEmpty)
+                    {
+                        UserPhone phoneToAdd = new UserPhone { UserID = _currentUserData.UserID, Phone = enteredPhone };
+                        _userPhoneRepository.AddUserPhone(phoneToAdd); 
+                        _currentDisplayPhone = phoneToAdd;
+                        Console.WriteLine($"Phone add attempted for UserID {_currentUserData.UserID}");
+                    }
+                }
+
+                MessageBox.Show("Profile changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving profile changes: {ex.ToString()}");
+                MessageBox.Show($"An error occurred while saving profile changes. Please check logs or contact support.", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UserProfileForm_Load(this, EventArgs.Empty);
+            }
         }
-        catch (Exception ex)
-        {
-            // Log ex.ToString()
-            Console.WriteLine($"Error saving profile changes: {ex.ToString()}");
-            MessageBox.Show($"An error occurred while saving profile changes. Check logs for details.", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            // Consider reloading data on error?
-            // UserProfileForm_Load(this, EventArgs.Empty);
-        }
+
+
     }
-}
-// Optional Helper Extension Method
-public static class ControlExtensions
+        public static class ControlExtensions
     {
         public static void SetText(this Control control, string text)
         {

@@ -3,6 +3,10 @@ using System.Windows.Forms;
 using Db_Project.models;        
 using Db_Project.Repositories;  
 using Db_Project.Forms;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
 
 namespace Db_Project.Forms
 {
@@ -47,75 +51,162 @@ namespace Db_Project.Forms
             return _userPhoneRepository;
         }
 
-
-        private void BtnSignup_Click(object sender, EventArgs e)
+    private void BtnSignup_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
-                string.IsNullOrWhiteSpace(txtLastName.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                string.IsNullOrWhiteSpace(txtPassword.Text) ||
-                string.IsNullOrWhiteSpace(txtPhone.Text) ||
-                cmbRole.SelectedItem == null)
+            string firstName = txtFirstName.Text.Trim();
+            string lastName = txtLastName.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string address = txtAddress.Text.Trim();
+            string password = txtPassword.Text; 
+            string phone = txtPhone.Text.Trim();
+            string selectedRole = cmbRole.SelectedItem?.ToString(); 
+
+            //Checks for nonempty fields
+            if (string.IsNullOrWhiteSpace(firstName))
             {
-                MessageBox.Show("Please fill in all fields and select a role.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("First Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFirstName.Focus(); 
+                return; 
+            }
+            if (!firstName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("First Name must contain only letters and spaces.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtFirstName.Focus();
+                return; 
+            }
+
+            if (string.IsNullOrWhiteSpace(lastName))
+            {
+                MessageBox.Show("Last Name cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLastName.Focus();
+                return; 
+            }
+            if (!lastName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Last Name must contain only letters and spaces.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLastName.Focus();
+                return; 
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Email cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus();
+                return; 
+            }
+            //email regex
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(email, emailPattern))
+            {
+                MessageBox.Show("Please enter a valid Email address format (e.g., name@domain.com).", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtEmail.Focus();
+                return; 
+            }
+
+           
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                MessageBox.Show("Address cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAddress.Focus();
+                return; 
+            }
+
+            // password checks
+            if (string.IsNullOrEmpty(password)) 
+            {
+                MessageBox.Show("Password cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
+                return; 
+            }
+            if (password.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
                 return;
             }
 
-            var newUser = new Users 
+            // phone number checks
+            if (string.IsNullOrWhiteSpace(phone))
             {
-                FirstName = txtFirstName.Text.Trim(),
-                LastName = txtLastName.Text.Trim(),
-                Email = txtEmail.Text.Trim(),
-                UserAddress = txtAddress.Text.Trim(),
-                UserRole = cmbRole.SelectedItem.ToString(),
-                UserPassword = txtPassword.Text
+                MessageBox.Show("Phone cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPhone.Focus();
+                return; 
+            }
+            if (!phone.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain only digits.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPhone.Focus();
+                txtPhone.SelectAll(); 
+                return; 
+            }
+            if (phone.Length < 11)
+            {
+                MessageBox.Show("Phone number must be at least 11 digits long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPhone.Focus();
+                return; 
+            }
+
+          
+            if (selectedRole == null)
+            {
+                MessageBox.Show("Please select a Role.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbRole.Focus();
+                return; 
+            }
+
+
+            //if it pass all validations
+            var newUser = new Users
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                UserAddress = address,
+                UserRole = selectedRole,
+                UserPassword = password 
             };
 
             try
             {
-
                 int newUserId = _userRepository.AddUser(newUser);
 
-                if (newUserId > 0) 
-
-                    if (newUserId > 0) 
+                if (newUserId > 0)
+                {
+                    var newUserPhone = new UserPhone
                     {
-                        var newUserPhone = new UserPhone
-                        {
-                            UserID = newUserId,
-                            Phone = txtPhone.Text.Trim()
-                        };
+                        UserID = newUserId,
+                        Phone = phone 
+                    };
 
-                        try
-                        {
-                            _userPhoneRepository.AddUserPhone(newUserPhone); // Call void method
-
-                            MessageBox.Show("Signup successful! You can now log in.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            LoginForm loginForm = new LoginForm();
-                            loginForm.Show();
-                            this.Close();
-                        }
-                        catch (Exception phoneEx) // Catch exceptions specifically from adding phone
-                        {
-                            Console.WriteLine($"ERROR adding phone after user creation (UserID: {newUserId}): {phoneEx.ToString()}");
-                            MessageBox.Show("Signup partially failed: User created, but could not add phone number due to an error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            
-                        }
-                    }
-                    else
+                    try 
                     {
-                        MessageBox.Show("Signup failed. The email might already be registered, or a database error occurred.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _userPhoneRepository.AddUserPhone(newUserPhone);
+
+                        MessageBox.Show("Signup successful! You can now log in.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        LoginForm loginForm = new LoginForm();
+                        loginForm.Show();
+                        this.Close();
                     }
-            } 
+                    catch (Exception phoneEx)
+                    {
+                        Console.WriteLine($"ERROR adding phone after user creation (UserID: {newUserId}): {phoneEx.ToString()}");
+                        MessageBox.Show("Signup partially failed: User created, but could not add phone number due to an error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Signup failed. The email might already be registered, or a database error occurred.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             catch (Exception ex) 
             {
                 Console.WriteLine("SIGNUP ERROR: " + ex.ToString());
-                MessageBox.Show($"An unexpected error occurred during signup. Please try again later.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An unexpected error occurred during signup. Please check logs or try again later.", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        } 
 
-        }
         private void BtnGoToLogin_Click(object sender, EventArgs e)
         {
             LoginForm loginForm = new LoginForm();
