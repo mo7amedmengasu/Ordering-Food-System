@@ -129,21 +129,6 @@
     <Compile Include="Forms\SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WinDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="WinDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WinDBDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="WinDBDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WinDBDataSet2.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,39 +166,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="WinDBDataSet.xsc">
-      <DependentUpon>WinDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="WinDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WinDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="WinDBDataSet.xss">
-      <DependentUpon>WinDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="WinDBDataSet1.xsc">
-      <DependentUpon>WinDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="WinDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WinDBDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="WinDBDataSet1.xss">
-      <DependentUpon>WinDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="WinDBDataSet2.xsc">
-      <DependentUpon>WinDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="WinDBDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>WinDBDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="WinDBDataSet2.xss">
-      <DependentUpon>WinDBDataSet2.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

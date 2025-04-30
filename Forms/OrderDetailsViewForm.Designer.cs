@@ -25,7 +25,6 @@
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.txtOrderId = new System.Windows.Forms.TextBox();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
@@ -39,11 +38,7 @@
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.lblDeliveryAddress = new System.Windows.Forms.Label();
             this.lblEstimatedTime = new System.Windows.Forms.Label();
-            this.winDBDataSet2 = new Db_Project.WinDBDataSet2();
-            this.winDBDataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.winDBDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.winDBDataSet2BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtOrderId
@@ -96,17 +91,13 @@
             // 
             // dgvOrderItems
             // 
-            this.dgvOrderItems.AllowUserToAddRows = false;
-            this.dgvOrderItems.AllowUserToDeleteRows = false;
-            this.dgvOrderItems.AutoGenerateColumns = false;
             this.dgvOrderItems.ColumnHeadersHeight = 29;
-            this.dgvOrderItems.DataSource = this.winDBDataSet2BindingSource;
             this.dgvOrderItems.Location = new System.Drawing.Point(20, 150);
             this.dgvOrderItems.Name = "dgvOrderItems";
-            this.dgvOrderItems.ReadOnly = true;
             this.dgvOrderItems.RowHeadersWidth = 51;
             this.dgvOrderItems.Size = new System.Drawing.Size(560, 200);
             this.dgvOrderItems.TabIndex = 6;
+            this.dgvOrderItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderItems_CellContentClick);
             // 
             // lblOrderId
             // 
@@ -156,16 +147,6 @@
             this.lblEstimatedTime.TabIndex = 12;
             this.lblEstimatedTime.Text = "ETA:";
             // 
-            // winDBDataSet2
-            // 
-            this.winDBDataSet2.DataSetName = "WinDBDataSet2";
-            this.winDBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // winDBDataSet2BindingSource
-            // 
-            this.winDBDataSet2BindingSource.DataSource = this.winDBDataSet2;
-            this.winDBDataSet2BindingSource.Position = 0;
-            // 
             // OrderDetailsViewForm
             // 
             this.ClientSize = new System.Drawing.Size(600, 380);
@@ -186,14 +167,10 @@
             this.Text = "Order Details";
             this.Load += new System.EventHandler(this.OrderDetailsViewForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.winDBDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.winDBDataSet2BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.BindingSource winDBDataSet2BindingSource;
-        private WinDBDataSet2 winDBDataSet2;
+        
     }
 }

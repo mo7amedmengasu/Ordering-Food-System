@@ -68,6 +68,10 @@ namespace Db_Project.Forms
             // You can load order details here later
         }
 
+        private void dgvOrderItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }
