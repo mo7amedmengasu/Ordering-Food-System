@@ -121,7 +121,7 @@
             this.btnSaveChanges.TabIndex = 12;
             this.btnSaveChanges.Text = "Save Changes";
             this.btnSaveChanges.UseVisualStyleBackColor = true;
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click); // Connect event
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             //
             // UserProfileForm
             //
@@ -149,7 +149,7 @@
 
         }
 
-        #endregion
+       
 
         // Control declarations used in code-behind
         private System.Windows.Forms.Label lblFirstName;
