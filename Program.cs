@@ -17,9 +17,10 @@ namespace Db_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignupForm());
-            Application.Run(new LoginForm());
-            Application.Run(new UserProfileForm());
+            //Application.Run(new SignupForm());
+            //Application.Run(new LoginForm());
+            //Application.Run(new UserProfileForm());
+            Application.Run(new ManageMenuForm());
 
 
 

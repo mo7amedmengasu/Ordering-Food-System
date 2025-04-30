@@ -43,3 +43,5 @@ C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.LoginForm.resou
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.SignupForm.resources
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.Up2Date
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.UserProfileForm.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.ManageMenuForm.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.AddEditForm.resources
