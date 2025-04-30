@@ -29,3 +29,14 @@ C:\Users\esraa\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.csproj.Up2
 C:\Users\esraa\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.exe
 C:\Users\esraa\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.pdb
 C:\Users\esraa\Source\Repos\Ordering-Food-System\bin\Debug\Db Project.pdb
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.csproj.AssemblyReference.cache
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db_Project.Form1.resources
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db_Project.Properties.Resources.resources
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.csproj.GenerateResource.cache
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.csproj.CoreCompileInputs.cache
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.exe
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.pdb
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db_Project.Forms.LoginForm.resources
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db_Project.Forms.OrderHistoryForm.resources
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db_Project.Forms.SignupForm.resources
+C:\Users\Nada Serour\Source\Repos\Ordering-Food-System\obj\Debug\Db_Project.Forms.UserProfileForm.resources

@@ -9,7 +9,7 @@ namespace Db_Project.Forms
     public partial class LoginForm : Form
     {
         private readonly UserRepository _userRepository;
-        string ConnectionString = "Server=ESRAA\\SQLEXPRESS;Database=FoodOrdering;Integrated Security=True;";
+        string ConnectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
 
         public LoginForm()
         {
@@ -71,8 +71,10 @@ namespace Db_Project.Forms
             this.Close(); 
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
 

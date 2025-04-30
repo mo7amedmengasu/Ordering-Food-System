@@ -15,7 +15,7 @@ namespace Db_Project
 {
     public partial class Form1 : Form
     {
-        string ConnectionString = "Server=ESRAA\\SQLEXPRESS;Database=FoodOrdering;Integrated Security=True;";
+        string ConnectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
 
         public Form1()
         {

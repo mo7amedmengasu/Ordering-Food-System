@@ -10,7 +10,7 @@ namespace Db_Project.Forms
     {
         private readonly UserRepository _userRepository;
         private readonly UserPhoneRepository _userPhoneRepository;
-        string ConnectionString = "Server=ESRAA\\SQLEXPRESS;Database=FoodOrdering;Integrated Security=True;";
+        string ConnectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
 
         public SignupForm()
         {
@@ -123,6 +123,10 @@ namespace Db_Project.Forms
             this.Close(); 
         }
 
+        private void SignupForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

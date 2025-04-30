@@ -17,7 +17,7 @@ namespace Db_Project.Forms
         // We still need to track the specific phone being displayed/edited
         private UserPhone _currentDisplayPhone; // Renamed for clarity
 
-        string ConnectionString = "Server=ESRAA\\SQLEXPRESS;Database=FoodOrdering;Integrated Security=True;";
+        string ConnectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
 
         public UserProfileForm()
         {
@@ -189,9 +189,14 @@ namespace Db_Project.Forms
             // UserProfileForm_Load(this, EventArgs.Empty);
         }
     }
-}
-// Optional Helper Extension Method
-public static class ControlExtensions
+
+        private void UserProfileForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+    }
+    // Optional Helper Extension Method
+    public static class ControlExtensions
     {
         public static void SetText(this Control control, string text)
         {

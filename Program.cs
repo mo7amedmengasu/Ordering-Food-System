@@ -22,7 +22,6 @@ namespace Db_Project
             Application.Run(new UserProfileForm());
 
 
-
         }
     }
 }
