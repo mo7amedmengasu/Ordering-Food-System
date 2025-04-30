@@ -1,4 +1,5 @@
-﻿using Db_Project.Repositories;
+﻿using Db_Project.models;
+using Db_Project.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,18 +29,9 @@ namespace Db_Project.Forms
 
         private void LoadOrders()
         {
-            
-            using (SqlConnection conn = new SqlConnection(_connectionString))
-            {
-                string query = "SELECT OrderID, OrderDate, TotalAmount FROM Orders WHERE CustomerID = @CustomerID";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                adapter.SelectCommand.Parameters.AddWithValue("@CustomerID", _customerId);
 
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                dataGridView1.DataSource = table;
-            }
+            List<Order> orders = _orderRepository.GetOrdersByCustomer(_customerId);
+            dataGridView1.DataSource = orders;
         }
 
        

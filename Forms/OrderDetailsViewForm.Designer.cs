@@ -7,15 +7,13 @@
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtTotalAmount;
-        private System.Windows.Forms.TextBox txtDeliveryAddress;
-        private System.Windows.Forms.TextBox txtEstimatedTime;
+       
         private System.Windows.Forms.DataGridView dgvOrderItems;
         private System.Windows.Forms.Label lblOrderId;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblTotalAmount;
-        private System.Windows.Forms.Label lblDeliveryAddress;
-        private System.Windows.Forms.Label lblEstimatedTime;
+       
 
         protected override void Dispose(bool disposing)
         {
@@ -29,15 +27,11 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
-            this.txtDeliveryAddress = new System.Windows.Forms.TextBox();
-            this.txtEstimatedTime = new System.Windows.Forms.TextBox();
             this.dgvOrderItems = new System.Windows.Forms.DataGridView();
             this.lblOrderId = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
-            this.lblDeliveryAddress = new System.Windows.Forms.Label();
-            this.lblEstimatedTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,11 +53,12 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(100, 100);
+            this.txtStatus.Location = new System.Drawing.Point(380, 61);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(200, 22);
             this.txtStatus.TabIndex = 2;
+            this.txtStatus.TextChanged += new System.EventHandler(this.txtStatus_TextChanged);
             // 
             // txtTotalAmount
             // 
@@ -72,22 +67,6 @@
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(200, 22);
             this.txtTotalAmount.TabIndex = 3;
-            // 
-            // txtDeliveryAddress
-            // 
-            this.txtDeliveryAddress.Location = new System.Drawing.Point(380, 60);
-            this.txtDeliveryAddress.Name = "txtDeliveryAddress";
-            this.txtDeliveryAddress.ReadOnly = true;
-            this.txtDeliveryAddress.Size = new System.Drawing.Size(200, 22);
-            this.txtDeliveryAddress.TabIndex = 4;
-            // 
-            // txtEstimatedTime
-            // 
-            this.txtEstimatedTime.Location = new System.Drawing.Point(380, 100);
-            this.txtEstimatedTime.Name = "txtEstimatedTime";
-            this.txtEstimatedTime.ReadOnly = true;
-            this.txtEstimatedTime.Size = new System.Drawing.Size(200, 22);
-            this.txtEstimatedTime.TabIndex = 5;
             // 
             // dgvOrderItems
             // 
@@ -117,7 +96,7 @@
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(20, 100);
+            this.lblStatus.Location = new System.Drawing.Point(300, 59);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(100, 23);
             this.lblStatus.TabIndex = 9;
@@ -131,22 +110,6 @@
             this.lblTotalAmount.TabIndex = 10;
             this.lblTotalAmount.Text = "Total:";
             // 
-            // lblDeliveryAddress
-            // 
-            this.lblDeliveryAddress.Location = new System.Drawing.Point(300, 60);
-            this.lblDeliveryAddress.Name = "lblDeliveryAddress";
-            this.lblDeliveryAddress.Size = new System.Drawing.Size(100, 23);
-            this.lblDeliveryAddress.TabIndex = 11;
-            this.lblDeliveryAddress.Text = "Address:";
-            // 
-            // lblEstimatedTime
-            // 
-            this.lblEstimatedTime.Location = new System.Drawing.Point(300, 100);
-            this.lblEstimatedTime.Name = "lblEstimatedTime";
-            this.lblEstimatedTime.Size = new System.Drawing.Size(100, 23);
-            this.lblEstimatedTime.TabIndex = 12;
-            this.lblEstimatedTime.Text = "ETA:";
-            // 
             // OrderDetailsViewForm
             // 
             this.ClientSize = new System.Drawing.Size(600, 380);
@@ -154,15 +117,11 @@
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.txtTotalAmount);
-            this.Controls.Add(this.txtDeliveryAddress);
-            this.Controls.Add(this.txtEstimatedTime);
             this.Controls.Add(this.dgvOrderItems);
             this.Controls.Add(this.lblOrderId);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTotalAmount);
-            this.Controls.Add(this.lblDeliveryAddress);
-            this.Controls.Add(this.lblEstimatedTime);
             this.Name = "OrderDetailsViewForm";
             this.Text = "Order Details";
             this.Load += new System.EventHandler(this.OrderDetailsViewForm_Load);

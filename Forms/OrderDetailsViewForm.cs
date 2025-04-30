@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Db_Project.models;
+using Db_Project.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,52 +17,33 @@ namespace Db_Project.Forms
     {
         private readonly int _orderId;
         private readonly string _connectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
-
+        private readonly OrderDetailsRepository _orderDetailsRepo;
+        private readonly OrderRepository _orderRepo;
         public OrderDetailsViewForm(int orderId)
         {
             InitializeComponent();
             _orderId = orderId;
+            _orderRepo = new OrderRepository(_connectionString);
+            _orderDetailsRepo = new OrderDetailsRepository(_connectionString);
             LoadOrderDetails();
         }
 
         private void LoadOrderDetails()
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            // Get order summary
+            Order order = _orderRepo.GetOrderById(_orderId);
+            if (order != null)
             {
-                conn.Open();
-
-                // Get order basic info
-                string orderQuery = "SELECT OrderID, OrderDate, Status, TotalAmount, DeliveryAddress, EstimatedTime FROM [Order] WHERE OrderID = @OrderID";
-                SqlCommand cmd = new SqlCommand(orderQuery, conn);
-                cmd.Parameters.AddWithValue("@OrderID", _orderId);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    txtOrderId.Text = reader["OrderID"].ToString();
-                    txtDate.Text = Convert.ToDateTime(reader["OrderDate"]).ToString("g");
-                    txtStatus.Text = reader["Status"].ToString();
-                    txtTotalAmount.Text = reader["TotalAmount"].ToString();
-                    txtDeliveryAddress.Text = reader["DeliveryAddress"].ToString();
-                    txtEstimatedTime.Text = reader["EstimatedTime"].ToString();
-                }
-                reader.Close();
-
-                // Load items in the order (join OrderDetails + MenuItem)
-                string detailsQuery = @"
-                SELECT m.Name AS ItemName, od.Quantity, od.Price
-                FROM OrderDetails od
-                INNER JOIN MenuItem m ON od.MenuItemID = m.MenuItemID
-                WHERE od.OrderID = @OrderID";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(detailsQuery, conn);
-                adapter.SelectCommand.Parameters.AddWithValue("@OrderID", _orderId);
-
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                dgvOrderItems.DataSource = dt;
+                txtOrderId.Text = order.OrderID.ToString();
+                txtDate.Text = order.OrderDate.ToString("g");
+                txtStatus.Text = order.Status;
+                txtTotalAmount.Text = order.TotalAmount.ToString("C");
             }
+
+            // Get order items
+            List<OrderDetails> items = _orderDetailsRepo.GetDetailsByOrder(_orderId);
+            dgvOrderItems.DataSource = items;
+        
         }
 
         private void OrderDetailsViewForm_Load(object sender, EventArgs e)
@@ -69,6 +52,11 @@ namespace Db_Project.Forms
         }
 
         private void dgvOrderItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtStatus_TextChanged(object sender, EventArgs e)
         {
 
         }
