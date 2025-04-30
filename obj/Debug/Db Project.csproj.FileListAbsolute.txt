@@ -29,3 +29,17 @@ C:\Users\esraa\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.csproj.Up2
 C:\Users\esraa\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.exe
 C:\Users\esraa\Source\Repos\Ordering-Food-System\obj\Debug\Db Project.pdb
 C:\Users\esraa\Source\Repos\Ordering-Food-System\bin\Debug\Db Project.pdb
+C:\Users\DELL\source\repos\Db Project\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Buffers.dll
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Memory.dll
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DELL\source\repos\Db Project\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Buffers.xml
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Memory.xml
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\DELL\source\repos\Db Project\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.LoginForm.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.SignupForm.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.Up2Date
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.UserProfileForm.resources

@@ -16,7 +16,7 @@ namespace Db_Project.Forms
         private Users _currentUserData;
         private UserPhone _currentDisplayPhone;
 
-        string ConnectionString = "Server=ESRAA\\SQLEXPRESS;Database=FoodOrdering;Integrated Security=True;";
+        string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
 
         public UserProfileForm()
         {
@@ -194,15 +194,18 @@ namespace Db_Project.Forms
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error saving profile changes: {ex.ToString()}");
-                MessageBox.Show($"An error occurred while saving profile changes. Please check logs or contact support.", "Save Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Console.WriteLine($"Error saving profile changes: {ex.ToString()}");
+                MessageBox.Show(ex.ToString());
                 UserProfileForm_Load(this, EventArgs.Empty);
             }
         }
 
+        private void UserProfileForm_Load_1(object sender, EventArgs e)
+        {
 
+        }
     }
-        public static class ControlExtensions
+    public static class ControlExtensions
     {
         public static void SetText(this Control control, string text)
         {

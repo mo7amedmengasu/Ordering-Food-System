@@ -70,7 +70,7 @@ namespace Db_Project.Repositories
             if (string.IsNullOrEmpty(phone.Phone)) 
                 throw new ArgumentException("Phone number cannot be null or empty for update. Use DeleteUserPhone instead.", nameof(phone));
 
-            string query = $"UPDATE Users SET Phone = @NewPhone WHERE UserID = @UserID";
+            string query = $"UPDATE CustomerPhone SET Phone = @NewPhone WHERE UserID = @UserID";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@NewPhone", phone.Phone),
