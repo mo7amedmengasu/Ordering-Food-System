@@ -18,9 +18,11 @@ namespace Db_Project.Forms
         private readonly OrderRepository _orderRepository;
         private readonly string _connectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
         private readonly int _customerId;
+        
         public OrderHistoryForm(int customerId)
         {
             InitializeComponent();
+            button1.Click += new EventHandler(BtnViewDetails_Click);
             _customerId = customerId;
             _orderRepository = new OrderRepository(_connectionString);
             LoadOrders();
@@ -34,7 +36,7 @@ namespace Db_Project.Forms
             dataGridView1.DataSource = orders;
         }
 
-       
+
 
         private void BtnViewDetails_Click(object sender, EventArgs e)
         {
@@ -49,6 +51,11 @@ namespace Db_Project.Forms
 
 
         private void OrderHistoryForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

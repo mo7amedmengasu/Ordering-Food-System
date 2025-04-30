@@ -20,8 +20,12 @@ namespace Db_Project
             Application.Run(new SignupForm());
             Application.Run(new LoginForm());
             Application.Run(new UserProfileForm());
+           // int testCustomerId = 26; 
+            
+           // OrderHistoryForm orderHistoryForm = new OrderHistoryForm(testCustomerId);
 
-
+           // Application.Run(orderHistoryForm);
+           
         }
     }
 }

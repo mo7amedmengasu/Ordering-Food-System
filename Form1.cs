@@ -16,7 +16,8 @@ namespace Db_Project
     public partial class Form1 : Form
     {
         string ConnectionString = "Data Source=LAPTOP-6DMMQEEO;Initial Catalog=WinDB;Integrated Security=True;";
-
+        public int customerId;
+        public int orderId;
         public Form1()
         {
             InitializeComponent();
@@ -77,6 +78,60 @@ namespace Db_Project
                 
 
             }
+
+            /*
+            UserRepository userRepo = new UserRepository(ConnectionString);
+            Users NEWCustomer = new Users
+            {
+                FirstName = "who?",
+                LastName = "idk",
+                Email = "yalla@example.com",
+                UserAddress = "... street",
+                UserRole = "Customer",
+                UserPassword = "123password"
+            };
+            customerId = userRepo.AddUser(NEWCustomer);
+            RestaurantRepository restaurantRepo = new RestaurantRepository(ConnectionString);
+            Restaurant NEWRestaurant = new Restaurant
+            {
+                Name = "Rest",
+                Rating = 4.7m
+            };
+            int NEWId = restaurantRepo.AddRestaurant(NEWRestaurant);
+            MenuItemRepository MENUItemRepo = new MenuItemRepository(ConnectionString);
+
+            MenuItem1 NEWMenuItem = new MenuItem1
+            {
+                Name = "steak ",
+                Availability = true,
+                Price = 12.99m,
+                Description = "sushiii",
+                RestaurantID = NEWId
+            };
+
+            int itemId = MENUItemRepo.AddMenuItem(NEWMenuItem);
+            OrderRepository Orderrepo = new OrderRepository(ConnectionString);
+
+            Order NewOrder = new Order
+            {
+                Status = "Pending",
+                TotalAmount = 49.99m,
+                RestaurantID = NEWId,  // make sure this exists
+                CustomerID = customerId     // make sure this exists
+            };
+
+            orderId = Orderrepo.AddOrder(NewOrder);
+            OrderDetailsRepository detailSRepo = new OrderDetailsRepository(ConnectionString);
+            List<OrderDetails> ItemS = new List<OrderDetails>
+        {
+            new OrderDetails { OrderID = orderId, ItemID = 1, Quantity = 2, Subtotal = 2 * 9.99m },
+            new OrderDetails { OrderID = orderId, ItemID = 3, Quantity = 1, Subtotal = 12.50m }
+        };
+
+            foreach (var item in ItemS)
+            {
+                detailSRepo.AddOrderDetail(item);
+            }*/
         }
 
         private void Form1_Load(object sender, EventArgs e)

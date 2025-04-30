@@ -150,7 +150,7 @@
 
         }
 
-        #endregion
+        //#endregion
 
         // Control declarations used in code-behind
         private System.Windows.Forms.Label lblFirstName;
