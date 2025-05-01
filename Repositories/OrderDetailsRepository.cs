@@ -147,5 +147,18 @@ namespace Db_Project.Repositories
             }
             return orderDetails;
         }
+
+        public decimal GetOrderTotal(int orderId)
+        {
+            string query = "SELECT SUM(Subtotal) FROM OrderDetails WHERE OrderID = @orderId";
+            SqlParameter param = new SqlParameter("@orderId", SqlDbType.Int) { Value = orderId };
+
+            object result = _dbHelper.ExecuteScalar(query, param);
+            if (result != DBNull.Value && result != null)
+            {
+                return Convert.ToDecimal(result);
+            }
+            return 0;
+        }
     }
 }

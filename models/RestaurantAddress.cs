@@ -10,5 +10,7 @@ namespace Db_Project.models
     {
         public int RestaurantID { get; set; }
         public string Address { get; set; }
+
+       
     }
 }

@@ -63,6 +63,7 @@
             this.lblTotalAmount.Size = new System.Drawing.Size(102, 20);
             this.lblTotalAmount.TabIndex = 2;
             this.lblTotalAmount.Text = "Total amount";
+            this.lblTotalAmount.Click += new System.EventHandler(this.lblTotalAmount_Click);
             // 
             // btnCheckOut
             // 

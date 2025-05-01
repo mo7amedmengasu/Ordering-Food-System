@@ -31,7 +31,8 @@ namespace Db_Project
             try
             {
                 Application.Run(new LoginForm());
-                Application.Run(new RestaurantsAvailable());
+                //Application.Run(new Form1());
+                //Application.Run(new TrialForm());
             }
             catch (Exception ex)
             {

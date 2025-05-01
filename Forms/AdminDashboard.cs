@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Db_Project.Repositories;
+using Db_Project.models;
 
 
 namespace Db_Project.Forms
@@ -17,9 +19,12 @@ namespace Db_Project.Forms
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
-
+        private RestaurantAddressRepository restaurantAddressRepository = new RestaurantAddressRepository(ConnectionString); 
+        private RestaurantPhoneRepository restaurantPhoneRepository = new RestaurantPhoneRepository(ConnectionString);
+        private RestaurantRepository restaurantRepository = new RestaurantRepository(ConnectionString);
+        private OrderRepository orderRepository = new OrderRepository(ConnectionString);
         private const int EM_SETCUEBANNER = 0x1501;
-        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        private static string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
         public AdminDashboard()
         {
             InitializeComponent();
@@ -40,9 +45,13 @@ namespace Db_Project.Forms
 
         }
 
+
+        //repositoried
         private void LoadRestaurantsForAdmin()
         {
-            using(SqlConnection connection = new SqlConnection(ConnectionString))
+            restaurantRepository.GetAllRestaurants();
+
+            /*using(SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 string query = "Select * from Restaurant";
@@ -50,12 +59,18 @@ namespace Db_Project.Forms
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 adminRestaurantGrid.DataSource = table;
-            }
+            }*/
         }
 
+
+        //repositoried
         private void LoadActiveOrders()
         {
-            using(SqlConnection connection= new SqlConnection(ConnectionString))
+
+            orderRepository.GetAllOrders();
+
+
+            /*using(SqlConnection connection= new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 string query = "Select * from [Order]";
@@ -63,15 +78,28 @@ namespace Db_Project.Forms
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 adminOrdersGrid.DataSource = table;
-            }
+            }*/
         }
 
-       
-        
 
+
+        //repositoried
         private void btnAddRestaurant_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+
+            try
+            {
+                restaurantRepository.AddRestaurant(new Restaurant
+                {
+                    Name = txtRestaurantName.Text,
+                    //Rating = decimal.TryParse(txtRating.Text, out decimal rating) ? rating : (decimal?)null
+                });
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            /*using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 
@@ -91,7 +119,7 @@ namespace Db_Project.Forms
                    
                     MessageBox.Show("Error: " + ex.Message);
                 }
-            }
+            }*/
 
         }
 
@@ -100,6 +128,8 @@ namespace Db_Project.Forms
 
         }
 
+
+        //repositoried
         private void btnDeleteRestaurant_Click(object sender, EventArgs e)
         {
 
@@ -117,7 +147,10 @@ namespace Db_Project.Forms
                 {
                     DataGridViewRow selectedRow = adminRestaurantGrid.SelectedRows[0];
                     int restaurantId = Convert.ToInt32(selectedRow.Cells["RestaurantId"].Value);
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
+
+                    restaurantRepository.DeleteRestaurant(restaurantId);
+
+                   /* using (SqlConnection connection = new SqlConnection(ConnectionString))
                     {
                         connection.Open();
                         string query = "delete from Restaurant where RestaurantID = @RestaurantId ";
@@ -125,7 +158,7 @@ namespace Db_Project.Forms
                         command.Parameters.AddWithValue("@RestaurantId", restaurantId);
                         command.ExecuteNonQuery();
 
-                    }
+                    }*/
                     LoadRestaurantsForAdmin();
                 }
             }
@@ -200,6 +233,8 @@ namespace Db_Project.Forms
             }
         }
 
+
+        //repositoried
         private void btnAddAddress_Click(object sender, EventArgs e)
         {
 
@@ -217,10 +252,14 @@ namespace Db_Project.Forms
                 
                 lstAddresses.Items.Add(txtAddress.Text);
 
-               
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                restaurantAddressRepository.Insert(
+                     new RestaurantAddress());
+                        
+                 
+                /*using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
+
 
                     
                     string insertAddressQuery = "INSERT INTO RestaurantAddress (RestaurantID, Address) VALUES (@restaurantId, @AddressText)";
@@ -230,7 +269,7 @@ namespace Db_Project.Forms
 
                     
                     cmd.ExecuteNonQuery();
-                }
+                }*/
 
                 
                 txtAddress.Clear();
@@ -265,6 +304,9 @@ namespace Db_Project.Forms
                 // Remove the selected address from the ListBox
                 lstAddresses.Items.Remove(lstAddresses.SelectedItem);
 
+                //will delete all the addresses nit just the selected one
+                //restaurantAddressRepository.Delete(restaurantId);
+
                 // Remove the address from the database
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
@@ -291,7 +333,7 @@ namespace Db_Project.Forms
             }
         }
 
-
+        //repositoried
         private void btnAddPhone_Click(object sender, EventArgs e)
         {
             if (adminRestaurantGrid.SelectedRows.Count == 0)
@@ -308,7 +350,14 @@ namespace Db_Project.Forms
 
                 // Add phone number to the ListBox temporarily (for display purposes)
                 lstPhones.Items.Add(txtPhone.Text);
+                RestaurantPhone phone = new RestaurantPhone();
+                phone.RestaurantID = restaurantId;
+                phone.Phone=txtPhone.Text;
+                restaurantPhoneRepository.AddPhone(phone);
 
+
+
+                /*
                 // Save the phone number to the database
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
@@ -322,7 +371,7 @@ namespace Db_Project.Forms
 
                     // Execute the query to insert the phone number
                     cmd.ExecuteNonQuery();
-                }
+                }*/
 
                 // Clear the input field
                 txtPhone.Clear();
@@ -352,16 +401,18 @@ namespace Db_Project.Forms
                     // Remove the phone number from the ListBox
                     lstPhones.Items.Remove(lstPhones.SelectedItem);
 
+                    
+
                     // Remove the phone number from the database
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
-                    {
-                        connection.Open();
-                        string deletePhoneQuery = "DELETE FROM RestaurantPhone WHERE RestaurantID = @RestaurantID AND Phone = @PhoneNumber";
-                        SqlCommand cmd = new SqlCommand(deletePhoneQuery, connection);
-                        cmd.Parameters.AddWithValue("@RestaurantID", restaurantId);
-                        cmd.Parameters.AddWithValue("@PhoneNumber", selectedPhone);
-                        cmd.ExecuteNonQuery();
-                    }
+                     using (SqlConnection connection = new SqlConnection(ConnectionString))
+                     {
+                         connection.Open();
+                         string deletePhoneQuery = "DELETE FROM RestaurantPhone WHERE RestaurantID = @RestaurantID AND Phone = @PhoneNumber";
+                         SqlCommand cmd = new SqlCommand(deletePhoneQuery, connection);
+                         cmd.Parameters.AddWithValue("@RestaurantID", restaurantId);
+                         cmd.Parameters.AddWithValue("@PhoneNumber", selectedPhone);
+                         cmd.ExecuteNonQuery();
+                     }
 
                     MessageBox.Show("Phone number removed successfully!");
                 }
@@ -376,12 +427,35 @@ namespace Db_Project.Forms
             }
         }
 
+
+        //repositoried
         private void LoadRestaurantDetails(int restaurantId)
         {
             lstAddresses.Items.Clear();
             lstPhones.Items.Clear();
 
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            List<RestaurantAddress> addresses = restaurantAddressRepository.GetByRestaurantId(restaurantId);
+            foreach (var addr in addresses)
+            {
+                if (!string.IsNullOrWhiteSpace(addr.Address))
+                {
+                    lstAddresses.Items.Add(addr.Address);
+                }
+            }
+
+            List<RestaurantPhone> phones = restaurantPhoneRepository.GetPhonesByRestaurant(restaurantId);
+            foreach (var phone in phones)
+            {
+                if (!string.IsNullOrWhiteSpace(phone.Phone))
+                {
+                    lstPhones.Items.Add(phone.Phone);
+                }
+            }
+
+
+
+
+            /*using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
 
@@ -405,11 +479,11 @@ namespace Db_Project.Forms
                 {
                     lstPhones.Items.Add(readerPhone["Phone"].ToString()); 
                 }
-                readerPhone.Close();
-            }
+                readerPhone.Close();*/
         }
+        
 
-
+        //done
         private void adminRestaurantGrid_SelectionChanged(object sender, EventArgs e)
         {
             if (adminRestaurantGrid.SelectedRows.Count > 0)

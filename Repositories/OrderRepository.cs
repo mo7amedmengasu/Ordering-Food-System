@@ -40,6 +40,7 @@ namespace Db_Project.Repositories
         };
 
             int newOrderId = Convert.ToInt32(_dbHelper.ExecuteScalar(query, parameters));
+            order.OrderID = newOrderId;
             order.OrderDate = GetOrderDate(newOrderId); // Retrieve exact server timestamp
             return newOrderId;
         }
@@ -194,5 +195,8 @@ namespace Db_Project.Repositories
             }
             return orders;
         }
-    }
+
+        
+
+}
 }

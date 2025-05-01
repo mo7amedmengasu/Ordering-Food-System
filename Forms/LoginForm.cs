@@ -47,8 +47,11 @@ namespace Db_Project.Forms
                     {
 
                         //MessageBox.Show("Customer Dashboard would open here."); 
-                       UserProfileForm profileForm = new UserProfileForm();
-                       profileForm.Show();
+                       //UserProfileForm profileForm = new UserProfileForm();
+                       //profileForm.Show();
+
+                        RestaurantsAvailable restaurantForm = new RestaurantsAvailable(CurrentUser.LoggedInUser);
+                        restaurantForm.Show();
 
                     }
 

@@ -61,6 +61,7 @@ namespace Db_Project.Repositories
             return MapDataRowToAddress(dataTable.Rows[0]);
         }
 
+
         // GET ALL - Get all restaurant addresses
         public List<RestaurantAddress> GetAll()
         {
@@ -94,6 +95,22 @@ namespace Db_Project.Repositories
             _dbHelper.ExecuteNonQuery(query, parameters);
         }
 
+        public void DeleteByAddressAndId( int restaurantId,string address)
+        {
+            string query = $@"
+            DELETE FROM {TableName} 
+            WHERE RestaurantID = @RestaurantID and Address=@address";
+
+            SqlParameter[] parameters =
+            {
+            new SqlParameter("@RestaurantID", restaurantId),
+            new SqlParameter("@address", address)
+        };
+
+            _dbHelper.ExecuteNonQuery(query, parameters);
+
+        }
+
         // Helper method to map DataRow to RestaurantAddress
         private RestaurantAddress MapDataRowToAddress(DataRow row)
         {
@@ -103,5 +120,29 @@ namespace Db_Project.Repositories
                 Address = row["Address"]?.ToString()
             };
         }
+
+        public List<RestaurantAddress> GetByRestaurantId(int restaurantId)
+        {
+            string query = $@"
+                           SELECT * 
+                           FROM {TableName} 
+                           WHERE RestaurantID = @RestaurantID";
+
+            SqlParameter[] parameters =
+            {
+            new SqlParameter("@RestaurantID", restaurantId) };
+            
+
+            DataTable dataTable = _dbHelper.ExecuteQuery(query, parameters);
+            List<RestaurantAddress> addresses = new List<RestaurantAddress>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                addresses.Add(MapDataRowToAddress(row));
+            }
+
+            return addresses;
+        }
+
     }
 }

@@ -1,4 +1,8 @@
-﻿using Db_Project.models;
+﻿
+//done!
+
+using Db_Project.models;
+using Db_Project.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +18,13 @@ namespace Db_Project.Forms
 {
     public partial class RestaurantsAvailable : Form
     {
-        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        private static string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
         private Users loggedInUser;
+        private RestaurantRepository restaurantRepository = new RestaurantRepository(ConnectionString);
 
-        public RestaurantsAvailable()
+        public RestaurantsAvailable(Users user)
         {
+            this.loggedInUser = user ?? throw new ArgumentNullException(nameof(user));
             InitializeComponent();
             LoadRestaurants();
             restaurantGrid.CellClick += restaurantGrid_CellClick;
@@ -29,22 +35,19 @@ namespace Db_Project.Forms
 
         }
 
+
+        //repositoried
         private void LoadRestaurants()
         {
-            using(SqlConnection connection = new SqlConnection(ConnectionString))
-            {
-                connection.Open();
-                string query = "SELECT * FROM Restaurant";
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                restaurantGrid.DataSource = table;
+            List<Restaurant> restaurants = restaurantRepository.GetAllRestaurants();
+            restaurantGrid.DataSource = restaurants;
 
-                restaurantGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            }
+            restaurantGrid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
+
+
+        //done
         private void restaurantGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -54,7 +57,7 @@ namespace Db_Project.Forms
                     DataGridViewRow selectedRow = restaurantGrid.Rows[e.RowIndex];
 
                     // Use the correct column index or name
-                    object idValue = selectedRow.Cells["RestaurantId"].Value;
+                    object idValue = selectedRow.Cells["RestaurantID"].Value;
 
                     if (idValue != null && int.TryParse(idValue.ToString(), out int restaurantId))
                     {

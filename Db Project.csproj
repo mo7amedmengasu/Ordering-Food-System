@@ -98,6 +98,12 @@
     <Compile Include="Forms\RestaurantsAvailable.Designer.cs">
       <DependentUpon>RestaurantsAvailable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TrialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TrialForm.Designer.cs">
+      <DependentUpon>TrialForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TrialForm.resx">
+      <DependentUpon>TrialForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>

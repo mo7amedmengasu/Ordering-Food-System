@@ -15,8 +15,8 @@ namespace Db_Project
 {
     public partial class Form1 : Form
     {
-        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
-
+        private static string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        OrderDetailsRepository orderDetailsRepository= new OrderDetailsRepository(ConnectionString);
 
         public Form1()
         {
@@ -35,41 +35,23 @@ namespace Db_Project
         {
             try
             {
-                UserRepository userRepository = new UserRepository(ConnectionString);
-                Users user1 = new Users();
-                user1.FirstName = "Renad";
-                user1.LastName = "Ibrahim";
-                user1.Email = "renadibrahimm@gmail.com";
-                user1.UserAddress = "eryhgfagsfdhad";
-                user1.UserRole = "admin";
-                user1.UserPassword = "123password123.";
-                userRepository.AddUser(user1);
-                List<Users> users = userRepository.GetAllUsers();
-
+                OrderDetails oderDetail = new OrderDetails();
+                oderDetail.OrderID = 2;
+                oderDetail.ItemID = 1;
+                oderDetail.Quantity = 2;
+                oderDetail.Subtotal = 20.0M;
                 var table = new DataTable();
-                table.Columns.Add("ID");
-                table.Columns.Add("First Name");
-                table.Columns.Add("Last Name");
-                table.Columns.Add("Email");
-                table.Columns.Add("Address");
-                table.Columns.Add("Role");
-                table.Columns.Add("Password");
-
-                foreach (var user in users)
-                {
-                    var row = table.NewRow();
-                    row["ID"] = user.UserID;
-                    row["First Name"] = user.FirstName;
-                    row["Last Name"] = user.LastName;
-                    row["Email"] = user.Email;
-                    row["Address"] = user.UserAddress;
-                    row["Role"] = user.UserRole;
-                    row["Password"] = user.UserPassword;
-                    table.Rows.Add(row);
-                }
+                table.Columns.Add("OrderID", typeof(int));
+                table.Columns.Add("ItemID", typeof(int));
+                table.Columns.Add("Quantity", typeof(int));
+                table.Columns.Add("Subtotal", typeof(decimal));
+                table.Rows.Add(oderDetail.OrderID, oderDetail.ItemID, oderDetail.Quantity, oderDetail.Subtotal);
+                orderDetailsRepository.AddOrderDetail(oderDetail);
                 dataGridView1.DataSource = table;
+                
 
-            
+
+
 
             }
             catch (Exception ex)
