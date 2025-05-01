@@ -9,7 +9,8 @@ namespace Db_Project.Forms
     public partial class LoginForm : Form
     {
         private readonly UserRepository _userRepository;
-        string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True";
+        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+
 
         public LoginForm()
         {
@@ -60,7 +61,7 @@ namespace Db_Project.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred during login: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.StackTrace);
             }
         }
 

@@ -16,7 +16,8 @@ namespace Db_Project.Forms
         private Users _currentUserData;
         private UserPhone _currentDisplayPhone;
 
-        string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
+                string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+
 
         public UserProfileForm()
         {

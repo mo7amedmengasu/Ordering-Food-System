@@ -8,18 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Db_Project
+namespace Db_Project.Forms
 {
-    public partial class Form2: Form
+    public partial class CartForm : Form
     {
-        public Form2()
+        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        public CartForm()
         {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void CartForm_Load(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

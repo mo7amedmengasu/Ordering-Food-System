@@ -14,7 +14,8 @@ namespace Db_Project.Forms
     {
         private readonly UserRepository _userRepository;
         private readonly UserPhoneRepository _userPhoneRepository;
-        string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
+        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+
 
         public SignupForm()
         {

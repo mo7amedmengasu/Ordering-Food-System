@@ -17,10 +17,26 @@ namespace Db_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignupForm());
-            Application.Run(new LoginForm());
-            Application.Run(new UserProfileForm());
-
+            //Application.Run(new SignupForm());
+            //Application.Run(new LoginForm());
+            //Application.Run(new UserProfileForm());
+            /*try
+            {
+                Application.Run(new AdminDashboard());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Startup error: " + ex.Message);
+            }*/
+            try
+            {
+                Application.Run(new LoginForm());
+                Application.Run(new RestaurantsAvailable());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Startup error: " + ex.Message);
+            }
 
 
         }

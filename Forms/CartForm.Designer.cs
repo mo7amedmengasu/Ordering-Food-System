@@ -1,6 +1,6 @@
-﻿namespace Db_Project
+﻿namespace Db_Project.Forms
 {
-    partial class Form2
+    partial class CartForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Form2
+            // CartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form2";
-            this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Name = "CartForm";
+            this.Text = "CartForm";
+            this.Load += new System.EventHandler(this.CartForm_Load);
             this.ResumeLayout(false);
 
         }
