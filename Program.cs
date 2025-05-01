@@ -21,6 +21,9 @@ namespace Db_Project
             Application.Run(new LoginForm());
             Application.Run(new UserProfileForm());
 
+            int restaurantId = 1;
+            Application.Run(new RestaurantMenuForm(restaurantId));
+
 
 
         }
