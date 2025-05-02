@@ -104,6 +104,18 @@
     <Compile Include="Forms\TrialForm.Designer.cs">
       <DependentUpon>TrialForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditForm.Designer.cs">
+      <DependentUpon>AddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageMenuForm.Designer.cs">
+      <DependentUpon>ManageMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,8 +168,8 @@
     <EmbeddedResource Include="Forms\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CartForm.resx">
-      <DependentUpon>CartForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddEditForm.resx">
+      <DependentUpon>AddEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
