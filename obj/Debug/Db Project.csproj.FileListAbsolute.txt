@@ -28,3 +28,5 @@ C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.csproj.Co
 C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.csproj.Up2Date
 C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.exe
 C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.pdb
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.AdminNavigationn.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.ManageRestaurantsForm.resources

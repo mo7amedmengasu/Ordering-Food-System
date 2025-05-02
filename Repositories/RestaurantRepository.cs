@@ -149,5 +149,36 @@ namespace Db_Project.Repositories
             }
             return restaurants;
         }
+
+        public void UpdateRestaurant(int restaurantId, string name, decimal? rating = null)
+        {
+            List<string> setClauses = new List<string>();
+            List<SqlParameter> parameters = new List<SqlParameter>();
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                setClauses.Add("Name = @Name");
+                parameters.Add(new SqlParameter("@Name", name));
+            }
+
+            if (rating.HasValue)
+            {
+                setClauses.Add("Rating = @Rating");
+                parameters.Add(new SqlParameter("@Rating", rating.Value));
+            }
+
+            if (setClauses.Count == 0)
+                throw new ArgumentException("At least one field (name or rating) must be provided.");
+
+            string query = $@"
+                           UPDATE Restaurant
+                           SET {string.Join(", ", setClauses)}
+                           WHERE RestaurantID = @RestaurantID";
+
+            parameters.Add(new SqlParameter("@RestaurantID", restaurantId));
+
+            _dbHelper.ExecuteNonQuery(query, parameters.ToArray());
+        }
+
     }
 }

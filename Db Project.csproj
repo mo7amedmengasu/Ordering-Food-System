@@ -80,11 +80,23 @@
     <Compile Include="Forms\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdminNavigationn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminNavigationn.Designer.cs">
+      <DependentUpon>AdminNavigationn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CartForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CartForm.Designer.cs">
       <DependentUpon>CartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManageRestaurantsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageRestaurantsForm.Designer.cs">
+      <DependentUpon>ManageRestaurantsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MenuItemsForm.cs">
       <SubType>Form</SubType>
@@ -171,8 +183,14 @@
     <EmbeddedResource Include="Forms\AddEditForm.resx">
       <DependentUpon>AddEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminNavigationn.resx">
+      <DependentUpon>AdminNavigationn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageRestaurantsForm.resx">
+      <DependentUpon>ManageRestaurantsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuItemsForm.resx">
       <DependentUpon>MenuItemsForm.cs</DependentUpon>

@@ -30,9 +30,10 @@ namespace Db_Project
             }*/
             try
             {
-                Application.Run(new LoginForm());
+                //Application.Run(new LoginForm());
                 //Application.Run(new Form1());
                 //Application.Run(new TrialForm());
+                Application.Run(new ManageRestaurantsForm());
             }
             catch (Exception ex)
             {
