@@ -55,6 +55,19 @@ namespace Db_Project.Repositories
             return dataTable.Rows.Count > 0 ? MapDataRowToDeliveryPerson(dataTable.Rows[0]) : null;
         }
 
+        public DeliveryPerson GetDeliveryPersonByOrderId(int deliveryPersonId)
+        {
+            string query = $@"
+                SELECT * 
+                FROM {TableName} 
+                WHERE DeliveryPersonID = @DeliveryPersonID";
+
+            SqlParameter[] parameters = { new SqlParameter("@DeliveryPersonID", deliveryPersonId) };
+
+            DataTable dataTable = _dbHelper.ExecuteQuery(query, parameters);
+            return dataTable.Rows.Count > 0 ? MapDataRowToDeliveryPerson(dataTable.Rows[0]) : null;
+        }
+
         // GET ALL - Retrieve all delivery persons
         public List<DeliveryPerson> GetAllDeliveryPersons()
         {

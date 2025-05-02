@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Db_Project.models
 {
-    class DeliveryPerson
+    public class DeliveryPerson
     {
         public int DeliveryPersonID { get; set; }
         public string Name { get; set; }

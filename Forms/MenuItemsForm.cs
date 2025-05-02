@@ -236,7 +236,7 @@ namespace Db_Project.Forms
                 // Set other order properties
                 order.RestaurantID = restaurantId;
                 order.CustomerID = loggedInUser.UserID;
-                order.Status = "preparing";
+                order.Status = "Pending";
                 order.OrderDate = DateTime.Now;
 
                 // Add the order and retrieve the auto-generated OrderID

@@ -65,6 +65,16 @@ namespace Db_Project.Repositories
             string query = $@"SELECT * FROM {TableName} ORDER BY OrderDate DESC";
             return MapDataTableToOrders(_dbHelper.ExecuteQuery(query));
         }
+        public List<Order> GetAllPendingOrders()
+        {
+            string query = $@"SELECT * FROM {TableName} where Status = 'Pending' ORDER BY OrderDate DESC";
+            return MapDataTableToOrders(_dbHelper.ExecuteQuery(query));
+        }
+        public List<Order> GetAllAssignedOrders()
+        {
+            string query = $@"SELECT * FROM {TableName} where Status = 'Assigned' ORDER BY OrderDate DESC";
+            return MapDataTableToOrders(_dbHelper.ExecuteQuery(query));
+        }
 
         // GET BY RESTAURANT - Retrieve orders by restaurant
         public List<Order> GetOrdersByRestaurant(int restaurantId)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Db_Project.models
 {
-    class Order
+    public class Order
     {
         public int OrderID { get; set; }
         public string Status { get; set; }

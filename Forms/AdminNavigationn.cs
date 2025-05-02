@@ -61,5 +61,19 @@ namespace Db_Project.Forms
             allOrdersForm.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Show_Pending_Oeders show_Pending_Oeders = new Show_Pending_Oeders(this);
+            show_Pending_Oeders.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ShowAssignedOrders showAssignedOrders = new ShowAssignedOrders(this);
+            showAssignedOrders.Show();
+            this.Hide();
+        }
     }
 }
