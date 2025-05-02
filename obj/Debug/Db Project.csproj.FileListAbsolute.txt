@@ -58,3 +58,5 @@ C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.CoreCompileInp
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.csproj.Up2Date
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.exe
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.pdb
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.MangeUserForm.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.AddEditUserForm.resources

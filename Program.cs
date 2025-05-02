@@ -30,7 +30,7 @@ namespace Db_Project
             }*/
             try
             {
-                Application.Run(new LoginForm());
+                Application.Run(new MangeUserForm());
                 //Application.Run(new Form1());
                 //Application.Run(new TrialForm());
             }
