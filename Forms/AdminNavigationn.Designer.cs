@@ -32,24 +32,27 @@
             this.btnManageMenu = new System.Windows.Forms.Button();
             this.btnManageRestaurants = new System.Windows.Forms.Button();
             this.btnManageUsers = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(263, 9);
+            this.label1.Location = new System.Drawing.Point(234, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 37);
+            this.label1.Size = new System.Drawing.Size(245, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Admin Dashboard";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnManageMenu
             // 
-            this.btnManageMenu.Location = new System.Drawing.Point(34, 138);
+            this.btnManageMenu.Location = new System.Drawing.Point(102, 80);
+            this.btnManageMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageMenu.Name = "btnManageMenu";
-            this.btnManageMenu.Size = new System.Drawing.Size(222, 222);
+            this.btnManageMenu.Size = new System.Drawing.Size(149, 118);
             this.btnManageMenu.TabIndex = 1;
             this.btnManageMenu.Text = "Manage Menu";
             this.btnManageMenu.UseVisualStyleBackColor = true;
@@ -57,9 +60,10 @@
             // 
             // btnManageRestaurants
             // 
-            this.btnManageRestaurants.Location = new System.Drawing.Point(289, 138);
+            this.btnManageRestaurants.Location = new System.Drawing.Point(107, 230);
+            this.btnManageRestaurants.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageRestaurants.Name = "btnManageRestaurants";
-            this.btnManageRestaurants.Size = new System.Drawing.Size(222, 222);
+            this.btnManageRestaurants.Size = new System.Drawing.Size(144, 119);
             this.btnManageRestaurants.TabIndex = 2;
             this.btnManageRestaurants.Text = "Manage Restaurants";
             this.btnManageRestaurants.UseVisualStyleBackColor = true;
@@ -67,25 +71,51 @@
             // 
             // btnManageUsers
             // 
-            this.btnManageUsers.Location = new System.Drawing.Point(552, 138);
+            this.btnManageUsers.Location = new System.Drawing.Point(442, 85);
+            this.btnManageUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Size = new System.Drawing.Size(222, 222);
+            this.btnManageUsers.Size = new System.Drawing.Size(159, 109);
             this.btnManageUsers.TabIndex = 3;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = true;
             this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(45, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "<----";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(442, 235);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 109);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Oders History";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AdminNavigationn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnManageUsers);
             this.Controls.Add(this.btnManageRestaurants);
             this.Controls.Add(this.btnManageMenu);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminNavigationn";
             this.Text = "AdminNavigationn";
+            this.Load += new System.EventHandler(this.AdminNavigationn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +127,7 @@
         private System.Windows.Forms.Button btnManageMenu;
         private System.Windows.Forms.Button btnManageRestaurants;
         private System.Windows.Forms.Button btnManageUsers;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

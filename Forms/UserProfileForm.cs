@@ -16,10 +16,12 @@ namespace Db_Project.Forms
         private Users _currentUserData;
         private UserPhone _currentDisplayPhone;
 
-                string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
+
+        UserDashboard UserDashboard;
 
 
-        public UserProfileForm()
+        public UserProfileForm(UserDashboard userDashboard )
         {
             InitializeComponent();
 
@@ -34,6 +36,7 @@ namespace Db_Project.Forms
             _userPhoneRepository = new UserPhoneRepository(ConnectionString);
 
             this.Load += UserProfileForm_Load;
+            this.UserDashboard = userDashboard;
         }
 
         private void UserProfileForm_Load(object sender, EventArgs e)
@@ -204,6 +207,12 @@ namespace Db_Project.Forms
         private void UserProfileForm_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserDashboard.Show();
+            this.Close();
         }
     }
     public static class ControlExtensions

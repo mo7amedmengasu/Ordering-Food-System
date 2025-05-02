@@ -18,10 +18,12 @@ namespace Db_Project.Forms
     {
         private static string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
         private MenuItemRepository menuItemRepository = new MenuItemRepository(ConnectionString);
-        public ManageMenuForm()
+        private AdminNavigationn adminNavigationn;
+        public ManageMenuForm(AdminNavigationn adminNavigationn)
         {
             InitializeComponent();
             ReadItems();
+            this.adminNavigationn = adminNavigationn;
         }
 
         private void ReadItems()
@@ -99,6 +101,12 @@ namespace Db_Project.Forms
             ReadItems();
 
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            adminNavigationn.Show();
         }
     }
 }

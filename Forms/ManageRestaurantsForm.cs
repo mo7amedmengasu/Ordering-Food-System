@@ -17,12 +17,13 @@ namespace Db_Project.Forms
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
-        private static string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True";
+        private static string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
         private RestaurantRepository restaurantRepository = new RestaurantRepository(ConnectionString);
         private RestaurantAddressRepository restaurantAddressRepository = new RestaurantAddressRepository(ConnectionString);
         private RestaurantPhoneRepository restaurantPhoneRepository = new RestaurantPhoneRepository(ConnectionString);
         private const int EM_SETCUEBANNER = 0x1501;
-        public ManageRestaurantsForm()
+        private AdminNavigationn adminNavigationn;
+        public ManageRestaurantsForm(AdminNavigationn adminNavigationn)
         {
             InitializeComponent();
             LoadRestaurants();
@@ -30,6 +31,7 @@ namespace Db_Project.Forms
             SendMessage(txtAddress.Handle, EM_SETCUEBANNER, 0, "Enter restaurant address");
             SendMessage(txtPhone.Handle, EM_SETCUEBANNER, 0, "Enter the restaurant's phone number");
             SendMessage(txtRating.Handle, EM_SETCUEBANNER, 0, "Enter the restaurant's rating");
+            this.adminNavigationn = adminNavigationn;
         }
 
         private void ManageRestaurantsForm_Load(object sender, EventArgs e)
@@ -298,5 +300,11 @@ namespace Db_Project.Forms
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Navigate back to the admin navigation form
+            this.Close();
+            adminNavigationn.Show();
+        }
     }
 }

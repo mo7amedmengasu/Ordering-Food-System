@@ -33,7 +33,7 @@ namespace Db_Project
                 //Application.Run(new LoginForm());
                 //Application.Run(new Form1());
                 //Application.Run(new TrialForm());
-                Application.Run(new ManageRestaurantsForm());
+                Application.Run(new LoginForm());
             }
             catch (Exception ex)
             {

@@ -30,3 +30,42 @@ C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.exe
 C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.pdb
 C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.AdminNavigationn.resources
 C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.ManageRestaurantsForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\Db Project.exe.config
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\Db Project.exe
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\Db Project.pdb
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Buffers.dll
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Memory.dll
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Buffers.xml
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Memory.xml
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db Project.csproj.AssemblyReference.cache
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Form1.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Form2.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.AdminDashboard.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.AddEditForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.AdminNavigationn.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.LoginForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.ManageRestaurantsForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.ManageUserForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.MenuItemsForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.RestaurantsAvailable.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.SignupForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.TrialForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.UserProfileForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Properties.Resources.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db Project.csproj.GenerateResource.cache
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db Project.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db Project.csproj.Up2Date
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db Project.exe
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db Project.pdb
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.AddEditUserForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.ManageMenuForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.UserDashboard.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.UserOrdersForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.OrderDetialsForm.resources
+C:\Users\DELL\Source\Repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.AllOrdersForm.resources

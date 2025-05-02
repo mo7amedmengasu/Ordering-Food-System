@@ -21,7 +21,7 @@ namespace Db_Project.Forms
 
         private int restaurantId;
         private Users loggedInUser;
-        private static string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        private static string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
         private MenuItemRepository menuItemRepository = new MenuItemRepository(ConnectionString);
         private OrderRepository orderRepository = new OrderRepository(ConnectionString);
         private OrderDetailsRepository orderDetailsRepository = new OrderDetailsRepository(ConnectionString);

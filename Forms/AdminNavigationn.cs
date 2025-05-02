@@ -24,20 +24,42 @@ namespace Db_Project.Forms
 
         private void btnManageMenu_Click(object sender, EventArgs e)
         {
-            ManageMenuForm manageMenuForm = new ManageMenuForm();
+            ManageMenuForm manageMenuForm = new ManageMenuForm(this);
             manageMenuForm.Show();
+            this.Hide();
         }
 
         private void btnManageRestaurants_Click(object sender, EventArgs e)
         {
-            ManageRestaurantsForm manageRestaurantsForm = new ManageRestaurantsForm();
+            ManageRestaurantsForm manageRestaurantsForm = new ManageRestaurantsForm(this);
             manageRestaurantsForm.Show();
+            this.Hide();
         }
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
-            /*ManageUsersForm manageUsersForm = new ManageUsersForm();
-            manageUsersForm.Show();*/
+            ManageUserForm manageUsersForm = new ManageUserForm(this);
+            manageUsersForm.Show();
+            this.Hide();
+        }
+
+        private void AdminNavigationn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AllOrdersForm  allOrdersForm = new AllOrdersForm(this);
+            allOrdersForm.Show();
+            this.Hide();
         }
     }
 }

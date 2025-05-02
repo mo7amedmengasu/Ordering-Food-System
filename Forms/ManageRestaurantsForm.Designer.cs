@@ -42,55 +42,62 @@
             this.lstAddresses = new System.Windows.Forms.ListBox();
             this.lstPhones = new System.Windows.Forms.ListBox();
             this.btnUpdateRestaurant = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // restaurantGrid
             // 
             this.restaurantGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.restaurantGrid.Location = new System.Drawing.Point(33, 38);
+            this.restaurantGrid.Location = new System.Drawing.Point(29, 30);
+            this.restaurantGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.restaurantGrid.Name = "restaurantGrid";
             this.restaurantGrid.ReadOnly = true;
             this.restaurantGrid.RowHeadersWidth = 62;
             this.restaurantGrid.RowTemplate.Height = 28;
-            this.restaurantGrid.Size = new System.Drawing.Size(347, 257);
+            this.restaurantGrid.Size = new System.Drawing.Size(308, 206);
             this.restaurantGrid.TabIndex = 0;
             this.restaurantGrid.SelectionChanged += new System.EventHandler(this.restaurantGrid_SelectionChanged);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(33, 321);
+            this.txtName.Location = new System.Drawing.Point(29, 257);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(252, 26);
+            this.txtName.Size = new System.Drawing.Size(224, 22);
             this.txtName.TabIndex = 1;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(33, 353);
+            this.txtAddress.Location = new System.Drawing.Point(29, 282);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(252, 26);
+            this.txtAddress.Size = new System.Drawing.Size(224, 22);
             this.txtAddress.TabIndex = 2;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(33, 385);
+            this.txtPhone.Location = new System.Drawing.Point(29, 308);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(252, 26);
+            this.txtPhone.Size = new System.Drawing.Size(224, 22);
             this.txtPhone.TabIndex = 3;
             // 
             // txtRating
             // 
-            this.txtRating.Location = new System.Drawing.Point(33, 417);
+            this.txtRating.Location = new System.Drawing.Point(29, 334);
+            this.txtRating.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRating.Name = "txtRating";
             this.txtRating.ShortcutsEnabled = false;
-            this.txtRating.Size = new System.Drawing.Size(252, 26);
+            this.txtRating.Size = new System.Drawing.Size(224, 22);
             this.txtRating.TabIndex = 4;
             // 
             // btnAddRestaurant
             // 
-            this.btnAddRestaurant.Location = new System.Drawing.Point(318, 315);
+            this.btnAddRestaurant.Location = new System.Drawing.Point(283, 252);
+            this.btnAddRestaurant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddRestaurant.Name = "btnAddRestaurant";
-            this.btnAddRestaurant.Size = new System.Drawing.Size(182, 32);
+            this.btnAddRestaurant.Size = new System.Drawing.Size(162, 26);
             this.btnAddRestaurant.TabIndex = 5;
             this.btnAddRestaurant.Text = "Add restaurant";
             this.btnAddRestaurant.UseVisualStyleBackColor = true;
@@ -98,9 +105,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(318, 353);
+            this.button1.Location = new System.Drawing.Point(283, 282);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 32);
+            this.button1.Size = new System.Drawing.Size(162, 26);
             this.button1.TabIndex = 6;
             this.button1.Text = "Delete restaurant";
             this.button1.UseVisualStyleBackColor = true;
@@ -108,9 +116,10 @@
             // 
             // btnAddAddress
             // 
-            this.btnAddAddress.Location = new System.Drawing.Point(675, 38);
+            this.btnAddAddress.Location = new System.Drawing.Point(600, 30);
+            this.btnAddAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddAddress.Name = "btnAddAddress";
-            this.btnAddAddress.Size = new System.Drawing.Size(113, 26);
+            this.btnAddAddress.Size = new System.Drawing.Size(100, 21);
             this.btnAddAddress.TabIndex = 9;
             this.btnAddAddress.Text = "Add address";
             this.btnAddAddress.UseVisualStyleBackColor = true;
@@ -118,9 +127,10 @@
             // 
             // btnAddPhone
             // 
-            this.btnAddPhone.Location = new System.Drawing.Point(675, 168);
+            this.btnAddPhone.Location = new System.Drawing.Point(600, 134);
+            this.btnAddPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddPhone.Name = "btnAddPhone";
-            this.btnAddPhone.Size = new System.Drawing.Size(113, 26);
+            this.btnAddPhone.Size = new System.Drawing.Size(100, 21);
             this.btnAddPhone.TabIndex = 10;
             this.btnAddPhone.Text = "Add phone number";
             this.btnAddPhone.UseVisualStyleBackColor = true;
@@ -128,9 +138,10 @@
             // 
             // btnDeleteAddress
             // 
-            this.btnDeleteAddress.Location = new System.Drawing.Point(675, 70);
+            this.btnDeleteAddress.Location = new System.Drawing.Point(600, 56);
+            this.btnDeleteAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteAddress.Name = "btnDeleteAddress";
-            this.btnDeleteAddress.Size = new System.Drawing.Size(113, 26);
+            this.btnDeleteAddress.Size = new System.Drawing.Size(100, 21);
             this.btnDeleteAddress.TabIndex = 11;
             this.btnDeleteAddress.Text = "Delete Address";
             this.btnDeleteAddress.UseVisualStyleBackColor = true;
@@ -138,9 +149,10 @@
             // 
             // btnDeletePhone
             // 
-            this.btnDeletePhone.Location = new System.Drawing.Point(675, 200);
+            this.btnDeletePhone.Location = new System.Drawing.Point(600, 160);
+            this.btnDeletePhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeletePhone.Name = "btnDeletePhone";
-            this.btnDeletePhone.Size = new System.Drawing.Size(113, 26);
+            this.btnDeletePhone.Size = new System.Drawing.Size(100, 21);
             this.btnDeletePhone.TabIndex = 12;
             this.btnDeletePhone.Text = "Delete Address";
             this.btnDeletePhone.UseVisualStyleBackColor = true;
@@ -149,36 +161,50 @@
             // lstAddresses
             // 
             this.lstAddresses.FormattingEnabled = true;
-            this.lstAddresses.ItemHeight = 20;
-            this.lstAddresses.Location = new System.Drawing.Point(445, 38);
+            this.lstAddresses.ItemHeight = 16;
+            this.lstAddresses.Location = new System.Drawing.Point(396, 30);
+            this.lstAddresses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstAddresses.Name = "lstAddresses";
-            this.lstAddresses.Size = new System.Drawing.Size(120, 84);
+            this.lstAddresses.Size = new System.Drawing.Size(107, 68);
             this.lstAddresses.TabIndex = 13;
             // 
             // lstPhones
             // 
             this.lstPhones.FormattingEnabled = true;
-            this.lstPhones.ItemHeight = 20;
-            this.lstPhones.Location = new System.Drawing.Point(445, 153);
+            this.lstPhones.ItemHeight = 16;
+            this.lstPhones.Location = new System.Drawing.Point(396, 122);
+            this.lstPhones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstPhones.Name = "lstPhones";
-            this.lstPhones.Size = new System.Drawing.Size(120, 84);
+            this.lstPhones.Size = new System.Drawing.Size(107, 68);
             this.lstPhones.TabIndex = 14;
             // 
             // btnUpdateRestaurant
             // 
-            this.btnUpdateRestaurant.Location = new System.Drawing.Point(318, 391);
+            this.btnUpdateRestaurant.Location = new System.Drawing.Point(283, 313);
+            this.btnUpdateRestaurant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateRestaurant.Name = "btnUpdateRestaurant";
-            this.btnUpdateRestaurant.Size = new System.Drawing.Size(182, 32);
+            this.btnUpdateRestaurant.Size = new System.Drawing.Size(162, 26);
             this.btnUpdateRestaurant.TabIndex = 15;
             this.btnUpdateRestaurant.Text = "Update restaurant";
             this.btnUpdateRestaurant.UseVisualStyleBackColor = true;
             this.btnUpdateRestaurant.Click += new System.EventHandler(this.btnUpdateRestaurant_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(29, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "<----";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ManageRestaurantsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnUpdateRestaurant);
             this.Controls.Add(this.lstPhones);
             this.Controls.Add(this.lstAddresses);
@@ -193,6 +219,7 @@
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.restaurantGrid);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManageRestaurantsForm";
             this.Text = "ManageRestaurantsForm";
             this.Load += new System.EventHandler(this.ManageRestaurantsForm_Load);
@@ -219,5 +246,6 @@
         private System.Windows.Forms.ListBox lstAddresses;
         private System.Windows.Forms.ListBox lstPhones;
         private System.Windows.Forms.Button btnUpdateRestaurant;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -18,16 +18,19 @@ namespace Db_Project.Forms
 {
     public partial class RestaurantsAvailable : Form
     {
-        private static string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        private static string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
         private Users loggedInUser;
         private RestaurantRepository restaurantRepository = new RestaurantRepository(ConnectionString);
+        private UserDashboard userDashboard;
 
-        public RestaurantsAvailable(Users user)
+
+        public RestaurantsAvailable(Users user , UserDashboard dashboard )
         {
             this.loggedInUser = user ?? throw new ArgumentNullException(nameof(user));
             InitializeComponent();
             LoadRestaurants();
             restaurantGrid.CellClick += restaurantGrid_CellClick;
+            this.userDashboard = dashboard ?? throw new ArgumentNullException(nameof(dashboard));
         }
 
         private void RestaurantsAvailable_Load(object sender, EventArgs e)
@@ -75,6 +78,13 @@ namespace Db_Project.Forms
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Go back to the user dashboard
+            this.Close();
+            userDashboard.Show();
         }
     }
 }

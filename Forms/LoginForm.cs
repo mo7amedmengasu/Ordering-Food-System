@@ -9,7 +9,7 @@ namespace Db_Project.Forms
     public partial class LoginForm : Form
     {
         private readonly UserRepository _userRepository;
-        string ConnectionString = "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True;";
+        string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
 
 
         public LoginForm()
@@ -41,7 +41,9 @@ namespace Db_Project.Forms
 
                     if (validatedUser.UserRole.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("Admin Dashboard would open here."); 
+                        AdminNavigationn adminForm = new AdminNavigationn();
+                        adminForm.Show();
+
                     }
                     else 
                     {
@@ -50,8 +52,9 @@ namespace Db_Project.Forms
                        //UserProfileForm profileForm = new UserProfileForm();
                        //profileForm.Show();
 
-                        RestaurantsAvailable restaurantForm = new RestaurantsAvailable(CurrentUser.LoggedInUser);
-                        restaurantForm.Show();
+                        UserDashboard userDashboard = new UserDashboard(CurrentUser.LoggedInUser );
+                        userDashboard.Show();
+                       
 
                     }
 
@@ -72,7 +75,7 @@ namespace Db_Project.Forms
         {
             SignupForm signupForm = new SignupForm();
             signupForm.Show();
-            this.Close(); 
+            this.Hide();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

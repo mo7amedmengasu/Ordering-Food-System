@@ -74,6 +74,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddEditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditUserForm.Designer.cs">
+      <DependentUpon>AddEditUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="Forms\AdminNavigationn.Designer.cs">
       <DependentUpon>AdminNavigationn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllOrdersForm.Designer.cs">
+      <DependentUpon>AllOrdersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CartForm.cs">
       <SubType>Form</SubType>
@@ -98,11 +110,23 @@
     <Compile Include="Forms\ManageRestaurantsForm.Designer.cs">
       <DependentUpon>ManageRestaurantsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ManageUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageUserForm.Designer.cs">
+      <DependentUpon>ManageUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MenuItemsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MenuItemsForm.Designer.cs">
       <DependentUpon>MenuItemsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderDetialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderDetialsForm.Designer.cs">
+      <DependentUpon>OrderDetialsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RestaurantsAvailable.cs">
       <SubType>Form</SubType>
@@ -127,6 +151,18 @@
     </Compile>
     <Compile Include="Forms\ManageMenuForm.Designer.cs">
       <DependentUpon>ManageMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserDashboard.Designer.cs">
+      <DependentUpon>UserDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserOrdersForm.Designer.cs">
+      <DependentUpon>UserOrdersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserProfileForm.cs">
       <SubType>Form</SubType>
@@ -177,6 +213,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEditUserForm.resx">
+      <DependentUpon>AddEditUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,14 +225,26 @@
     <EmbeddedResource Include="Forms\AdminNavigationn.resx">
       <DependentUpon>AdminNavigationn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllOrdersForm.resx">
+      <DependentUpon>AllOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageMenuForm.resx">
+      <DependentUpon>ManageMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageRestaurantsForm.resx">
       <DependentUpon>ManageRestaurantsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManageUserForm.resx">
+      <DependentUpon>ManageUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MenuItemsForm.resx">
       <DependentUpon>MenuItemsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderDetialsForm.resx">
+      <DependentUpon>OrderDetialsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RestaurantsAvailable.resx">
       <DependentUpon>RestaurantsAvailable.cs</DependentUpon>
@@ -203,6 +254,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TrialForm.resx">
       <DependentUpon>TrialForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserDashboard.resx">
+      <DependentUpon>UserDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserOrdersForm.resx">
+      <DependentUpon>UserOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>

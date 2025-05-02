@@ -14,7 +14,7 @@ namespace Db_Project.Forms
 {
     public partial class TrialForm : Form
     {
-        private static string ConnectionString= "Data Source=RENADLAPTOP;Initial Catalog=windb;Integrated Security=True";
+        private static string ConnectionString= "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
         private OrderRepository orderRepository = new OrderRepository(ConnectionString);
         public TrialForm()
         {

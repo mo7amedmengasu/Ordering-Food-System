@@ -114,7 +114,7 @@ public class UserRepository
 
    
 
-    /*public void UpdateUser(Users user)
+    public void UpdateUser(Users user)
     {
         string query = "UPDATE Users SET FirstName = @FirstName, LastName = @LastName, Email = @Email, " +
                        "UserAddress = @UserAddress, UserRole = @UserRole, UserPassword = @UserPassword " +
@@ -130,7 +130,7 @@ public class UserRepository
             new SqlParameter("@UserPassword", user.UserPassword) // Requires logic to check if it's a new plain password to hash
         };
         _dbHelper.ExecuteNonQuery(query, parameters);
-    }*/
+    }
 
 
     public void DeleteUser(int userId)
