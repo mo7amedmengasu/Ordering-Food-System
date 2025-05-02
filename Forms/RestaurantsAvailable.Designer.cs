@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.restaurantGrid = new System.Windows.Forms.DataGridView();
+            this.lstPhones = new System.Windows.Forms.ListView();
+            this.lstAddresses = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,11 +47,31 @@
             this.restaurantGrid.Size = new System.Drawing.Size(560, 333);
             this.restaurantGrid.TabIndex = 0;
             // 
+            // lstPhones
+            // 
+            this.lstPhones.HideSelection = false;
+            this.lstPhones.Location = new System.Drawing.Point(615, 94);
+            this.lstPhones.Name = "lstPhones";
+            this.lstPhones.Size = new System.Drawing.Size(231, 124);
+            this.lstPhones.TabIndex = 1;
+            this.lstPhones.UseCompatibleStateImageBehavior = false;
+            // 
+            // lstAddresses
+            // 
+            this.lstAddresses.HideSelection = false;
+            this.lstAddresses.Location = new System.Drawing.Point(615, 238);
+            this.lstAddresses.Name = "lstAddresses";
+            this.lstAddresses.Size = new System.Drawing.Size(231, 124);
+            this.lstAddresses.TabIndex = 2;
+            this.lstAddresses.UseCompatibleStateImageBehavior = false;
+            // 
             // RestaurantsAvailable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 450);
+            this.ClientSize = new System.Drawing.Size(1013, 450);
+            this.Controls.Add(this.lstAddresses);
+            this.Controls.Add(this.lstPhones);
             this.Controls.Add(this.restaurantGrid);
             this.Name = "RestaurantsAvailable";
             this.Text = "RestaurantsAvailable";
@@ -62,5 +84,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView restaurantGrid;
+        private System.Windows.Forms.ListView lstPhones;
+        private System.Windows.Forms.ListView lstAddresses;
     }
 }

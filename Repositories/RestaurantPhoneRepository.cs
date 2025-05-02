@@ -124,5 +124,21 @@ namespace Db_Project.Repositories
                 Phone = row["Phone"]?.ToString()
             };
         }
+
+        public void DeleteByPhoneAndId(int restaurantId, string phone)
+        {
+            string query = $@"
+    DELETE FROM {TableName} 
+    WHERE RestaurantID = @RestaurantID AND Phone = @phone";
+
+            SqlParameter[] parameters =
+            {
+        new SqlParameter("@RestaurantID", restaurantId),
+        new SqlParameter("@phone", phone)
+    };
+
+            _dbHelper.ExecuteNonQuery(query, parameters);
+        }
+
     }
 }
