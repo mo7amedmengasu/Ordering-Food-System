@@ -1,0 +1,30 @@
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\Db Project.exe.config
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\Db Project.exe
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\Db Project.pdb
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Buffers.dll
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Memory.dll
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Buffers.xml
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Memory.xml
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\renad\Source\Repos\Ordering-Food-System2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.csproj.AssemblyReference.cache
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Form1.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Form2.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.AdminDashboard.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.AddEditForm.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.LoginForm.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.MenuItemsForm.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.RestaurantsAvailable.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.SignupForm.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.TrialForm.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Forms.UserProfileForm.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db_Project.Properties.Resources.resources
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.csproj.GenerateResource.cache
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.csproj.CoreCompileInputs.cache
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.csproj.Up2Date
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.exe
+C:\Users\renad\Source\Repos\Ordering-Food-System2\obj\Debug\Db Project.pdb
