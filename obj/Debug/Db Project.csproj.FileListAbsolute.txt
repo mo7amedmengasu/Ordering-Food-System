@@ -60,3 +60,4 @@ C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.exe
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db Project.pdb
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.MangeUserForm.resources
 C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.AddEditUserForm.resources
+C:\Users\DELL\source\repos\Db Project\obj\Debug\Db_Project.Forms.UserDashboard.resources

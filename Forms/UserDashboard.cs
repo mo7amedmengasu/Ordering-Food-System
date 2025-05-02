@@ -16,5 +16,15 @@ namespace Db_Project.Forms
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //view profile here
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Restaurant menu here
+        }
     }
 }

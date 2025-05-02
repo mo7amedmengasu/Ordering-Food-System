@@ -41,7 +41,9 @@ namespace Db_Project.Forms
 
                     if (validatedUser.UserRole.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("Admin Dashboard would open here."); 
+                        //AdminNavigationForm adminnavigaitonfrom = new AdminNavigationForm();
+                        //adminnavigaitonfrom.Show();
+                        
                     }
                     else 
                     {

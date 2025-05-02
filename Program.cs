@@ -30,14 +30,13 @@ namespace Db_Project
             }*/
             try
             {
-<<<<<<< HEAD
-                Application.Run(new MangeUserForm());
-=======
+
+
                 //Application.Run(new LoginForm());
->>>>>>> origin/renad2
+
                 //Application.Run(new Form1());
                 //Application.Run(new TrialForm());
-                Application.Run(new ManageRestaurantsForm());
+                Application.Run(new MangeUserForm());
             }
             catch (Exception ex)
             {
