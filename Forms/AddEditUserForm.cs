@@ -15,6 +15,7 @@ namespace Db_Project.Forms
     {
         private static string ConnectionString = "Data Source=.;Initial Catalog=windb;Integrated Security=True;";
         private UserRepository userRepository = new UserRepository(ConnectionString);
+     
         public AddEditUserForm()
         {
             InitializeComponent();
@@ -49,7 +50,15 @@ namespace Db_Project.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Users user = new Users();
+            if (isEditMode)
+            {
+                this.label8.Text = "Edit User";
+            }
+            else
+            {
+                this.label8.Text = "Add User";
+            }
+                Users user = new Users();
             if (this.firstrnamearea.Text.Length == 0)
             {
                 MessageBox.Show("please Enter a First Name");
@@ -88,6 +97,7 @@ namespace Db_Project.Forms
             user.UserPassword = this.passwordarea.Text;
             if (isEditMode)
             {
+                
                 user.UserID = int.Parse(this.useridarea.Text);
                 userRepository.UpdateUser(user);
                 DialogResult = DialogResult.OK;

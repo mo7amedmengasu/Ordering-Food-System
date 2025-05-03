@@ -167,20 +167,25 @@ namespace Db_Project.Forms
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            if (existingItems==null || existingItems.Count==0)
+            if (existingItems == null || existingItems.Count == 0)
             {
                 MessageBox.Show("Your cart is empty.");
                 return;
             }
 
-            int orderId = SaveOrderToDatabase();
 
+            int orderId = SaveOrderToDatabase();
             if (orderId > 0)
             {
                 decimal total = orderDetailsRepository.GetOrderTotal(orderId);
                 lblTotalAmount.Text = $"Total: {total:C}";
                 MessageBox.Show($"Order placed! Total: {total:C}");
-                
+
+               
+                PaymentForm paymentForm = new PaymentForm(orderId, loggedInUser.UserID);
+                paymentForm.ShowDialog();
+
+                // Reset cart
                 UpdateCartDisplay();
                 existingItems.Clear();
                 itemQuantities.Clear();
@@ -191,10 +196,12 @@ namespace Db_Project.Forms
             {
                 MessageBox.Show("Failed to place the order.");
             }
+
         }
 
 
-       
+
+
 
 
         /*private decimal CalculateOrderTotal(int orderId)

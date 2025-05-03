@@ -73,3 +73,4 @@ C:\Users\DELL\source\repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.Assi
 C:\Users\DELL\source\repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.DileveryPersonsList.resources
 C:\Users\DELL\source\repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.Show_Pending_Oeders.resources
 C:\Users\DELL\source\repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.ShowAssignedOrders.resources
+C:\Users\DELL\source\repos\Ordering-Food-System1\obj\Debug\Db_Project.Forms.PaymentForm.resources
